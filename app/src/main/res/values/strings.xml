@@ -1,4 +1,17 @@
 <resources>
     <string name="app_name">Green Lobo</string>
     <string name="title_activity_maps">Green Lobo</string>
+
+    <string-array name="menus">
+        <item>Home</item>
+        <item>Android</item>
+        <item>Xamarin</item>
+        <item>WordPress</item>
+        <item>Java</item>
+        <item>Tools</item>
+        <item>Servlets</item>
+    </string-array>
+
+    <string name="drawer_open">Open Drawer</string>
+    <string name="drawer_close">Close Drawer</string>
 </resources>

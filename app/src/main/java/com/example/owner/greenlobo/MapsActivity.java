@@ -90,14 +90,48 @@ public class MapsActivity extends FragmentActivity {
     }
 
     private void addWaterFountains(){
+        //Casas
+        waterFountains.add(new MarkerOptions().title("Water Fountain Casas Del Rio").snippet("In front office, behind gym and next to bathrooms").
+                position(new LatLng(35.084616, -106.615332)).icon(BitmapDescriptorFactory.fromResource(R.drawable.bluewatermarker)));
+
+        //Centennial Engineering Center
+        waterFountains.add(new MarkerOptions().title("Water Fountain CENT").snippet("First floor and basement, next to bathrooms").
+                position(new LatLng(35.083028, -106.625633)).icon(BitmapDescriptorFactory.fromResource(R.drawable.bluewatermarker)));
+
         //Dane Smith Hall
         waterFountains.add(new MarkerOptions().title("Water Fountain DSH").snippet("Along west wall on all floors, behind bathrooms").
                 position(new LatLng(35.086315, -106.623596)).icon(BitmapDescriptorFactory.fromResource(R.drawable.bluewatermarker)));
         waterFountains.add(new MarkerOptions().title("Water Fountain DSH").snippet("Second floor between east entrance doors")
                 .position(new LatLng(35.086194, -106.622904)).icon(BitmapDescriptorFactory.fromResource(R.drawable.bluewatermarker)));
 
+        //Farris
+        waterFountains.add(new MarkerOptions().title("Water Fountain FEC").snippet("Third floor, next to bathrooms").
+                position(new LatLng(35.082268, -106.625394)).icon(BitmapDescriptorFactory.fromResource(R.drawable.bluewatermarker)));
+
+
+        //Johnson Gym
+        waterFountains.add(new MarkerOptions().title("Water Johnson Gym").snippet("First floor, both inside and outside weight room").
+                position(new LatLng(35.082358, -106.617406)).icon(BitmapDescriptorFactory.fromResource(R.drawable.bluewatermarker)));
+        waterFountains.add(new MarkerOptions().title("Water Johnson Gym").snippet("First floor, next to equipment room").
+                position(new LatLng(35.082666, -106.618031)).icon(BitmapDescriptorFactory.fromResource(R.drawable.bluewatermarker)));
+        waterFountains.add(new MarkerOptions().title("Water Johnson Gym").snippet("First floor, main gym near doors").
+                position(new LatLng(35.082451, -106.618388)).icon(BitmapDescriptorFactory.fromResource(R.drawable.bluewatermarker)));
+
+        //Popejoy
+        waterFountains.add(new MarkerOptions().title("Water Popejoy").snippet("Basement, next to bathrooms").
+                position(new LatLng(35.082335, -106.620303)).icon(BitmapDescriptorFactory.fromResource(R.drawable.bluewatermarker)));
+
+        //SMLC
+        waterFountains.add(new MarkerOptions().title("Water SMLC").snippet("First floor, next to north wing bathrooms").
+                position(new LatLng(35.084044, -106.624275)).icon(BitmapDescriptorFactory.fromResource(R.drawable.bluewatermarker)));
+
+
+        //SUB
+        waterFountains.add(new MarkerOptions().title("Water SUB").snippet("Both floors next to stairs and bathrooms").
+                position(new LatLng(35.083627, -106.620314)).icon(BitmapDescriptorFactory.fromResource(R.drawable.bluewatermarker)));
+
         //Zimmerman Library
-        waterFountains.add(new MarkerOptions().title("Water Fountain Zimmerman").snippet("First floor computer area next to bathrooms").
+        waterFountains.add(new MarkerOptions().title("Water Fountain Zimmerman Library").snippet("First floor computer area next to bathrooms").
                 position(new LatLng(35.084809, -106.620343)).icon(BitmapDescriptorFactory.fromResource(R.drawable.bluewatermarker)));
     }
 
