@@ -1,6 +1,5 @@
 package com.example.owner.greenlobo;
 
-import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
 
 import com.google.android.gms.maps.CameraUpdate;
@@ -9,13 +8,16 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
-import android.graphics.BitmapFactory;
+
+import android.support.v7.app.ActionBarActivity;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 
 import java.util.ArrayList;
 
-public class MapsActivity extends FragmentActivity {
+public class MapsActivity extends ActionBarActivity {
 
     private GoogleMap mMap; // Might be null if Google Play services APK is not available.
     private ArrayList<MarkerOptions> recyclingBins = new ArrayList<>();
@@ -32,6 +34,44 @@ public class MapsActivity extends FragmentActivity {
     protected void onResume() {
         super.onResume();
         setUpMapIfNeeded();
+    }
+
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.maps, menu);
+
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        if (id == R.id.action_both) {
+            for(int i=0;i<waterFountains.size();i++){
+                mMap.addMarker(waterFountains.get(i));
+            }
+            for(int i=0;i<recyclingBins.size();i++){
+                mMap.addMarker(recyclingBins.get(i));
+            }
+            return true;
+        }
+        if (id == R.id.action_wf) {
+            mMap.clear();
+            for (int i = 0; i < waterFountains.size(); i++) {
+                mMap.addMarker(waterFountains.get(i));
+            }
+            return true;
+        }
+        if (id == R.id.action_rb) {
+            mMap.clear();
+            for (int i = 0; i < recyclingBins.size(); i++) {
+                    mMap.addMarker(recyclingBins.get(i));
+            }
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     /**
@@ -88,7 +128,8 @@ public class MapsActivity extends FragmentActivity {
 
         //mMap.addMarker(new MarkerOptions().position(new LatLng(35.0839, 106.6186)).title("UNM"));
     }
-
+    //compost
+    //trash cans
     private void addWaterFountains(){
         //Casas
         waterFountains.add(new MarkerOptions().title("Water Fountain Casas Del Rio").snippet("In front office, behind gym and next to bathrooms").
@@ -136,7 +177,27 @@ public class MapsActivity extends FragmentActivity {
     }
 
     private void addRecyclingBins() {
+        //Centennial Library
+        recyclingBins.add(new MarkerOptions().title("Recycling Bin CENT").snippet("Centennial Library B1 next to stars and front desk").
+                position(new LatLng(35.083166, -106.624088)).icon(BitmapDescriptorFactory.fromResource(R.drawable.greenrecyclingmarker)));
+
+        //DSH
         recyclingBins.add(new MarkerOptions().title("Recycling Bin DSH").snippet("Second floor along east entrance hallway").
                 position(new LatLng(35.086224, -106.622933)).icon(BitmapDescriptorFactory.fromResource(R.drawable.greenrecyclingmarker)));
+        recyclingBins.add(new MarkerOptions().title("Recycling Bin DSH").snippet("First floor south hallway").
+                position(new LatLng(35.086054, -106.623209)).icon(BitmapDescriptorFactory.fromResource(R.drawable.greenrecyclingmarker)));
+        recyclingBins.add(new MarkerOptions().title("Recycling Bin DSH").snippet("First floor, PepsiCo recycling machine by outtakes").
+                position(new LatLng(35.086139, -106.622953)).icon(BitmapDescriptorFactory.fromResource(R.drawable.greenrecyclingmarker)));
+
+
+        //Duck Pond
+        recyclingBins.add(new MarkerOptions().title("Recycling Bin Duck Pond").snippet("East pathway along Zimmerman Library").
+                position(new LatLng(35.084856, -106.621803)).icon(BitmapDescriptorFactory.fromResource(R.drawable.greenrecyclingmarker)));
+
+        //General Outside
+        recyclingBins.add(new MarkerOptions().title("Recycling Bin ").snippet("Walkway by SMLC").
+                position(new LatLng(35.084071, -106.623754)).icon(BitmapDescriptorFactory.fromResource(R.drawable.greenrecyclingmarker)));
+        recyclingBins.add(new MarkerOptions().title("Recycling Bin").snippet("Walkway by Centennial Library").
+                position(new LatLng(35.083326, -106.6239127)).icon(BitmapDescriptorFactory.fromResource(R.drawable.greenrecyclingmarker)));
     }
 }

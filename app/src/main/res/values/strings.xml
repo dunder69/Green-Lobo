@@ -14,4 +14,7 @@
 
     <string name="drawer_open">Open Drawer</string>
     <string name="drawer_close">Close Drawer</string>
+
+    <string name="wf">Water Fountains</string>
+    <string name="rb">Recycling Bins</string>
 </resources>

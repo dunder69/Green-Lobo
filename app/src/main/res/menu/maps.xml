@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:id="@+id/action_both"
+        android:title="Both"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/rwicon"
+        />
+
+    <item android:id="@+id/action_wf"
+        android:title="Water Fountains"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/wicon"
+        />
+
+    <item android:id="@+id/action_rb"
+        android:title="Recycling Bins"
+        app:showAsAction="ifRoom"
+        android:icon="@drawable/ricon"
+         />
+
+</menu>
