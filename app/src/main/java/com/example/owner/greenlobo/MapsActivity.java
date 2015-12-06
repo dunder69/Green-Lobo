@@ -17,7 +17,7 @@ import android.view.MenuItem;
 
 import java.util.ArrayList;
 
-public class MapsActivity extends ActionBarActivity {
+public class MapsActivity extends ActionBarActivity{
 
     private GoogleMap mMap; // Might be null if Google Play services APK is not available.
     private ArrayList<MarkerOptions> recyclingBins = new ArrayList<>();
@@ -28,6 +28,23 @@ public class MapsActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
         setUpMapIfNeeded();
+
+        mMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
+
+            @Override
+            public void onMapClick(LatLng point) {
+                MarkerOptions marker = new MarkerOptions().position(
+                        new LatLng(point.latitude, point.longitude)).title("Suggest this spot, post in: greenlobo.wordpress.com").snippet(point.latitude + ", " + point.longitude);
+                mMap.clear();
+                mMap.addMarker(marker);
+                for(int i=0;i<waterFountains.size();i++){
+                    mMap.addMarker(waterFountains.get(i));
+                }
+                for(int i=0;i<recyclingBins.size();i++){
+                    mMap.addMarker(recyclingBins.get(i));
+                }
+            }
+        });
     }
 
     @Override
@@ -73,6 +90,7 @@ public class MapsActivity extends ActionBarActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
 
     /**
      * Sets up the map if it is possible to do so (i.e., the Google Play services APK is correctly
